@@ -115,19 +115,43 @@ text {
   font-weight: bold;
   font-size: 14px;
 }
-
-
 </style>
 
 <h1>Sky trajectories of fixed celestial coordinates</h1>
 
-<p> <a href="https://github.com/yymao/skypaths">on GitHub</a>
+<div>
+    <p><b>Where do you want to look?</b> Specify the RA/Dec (J2000) of the point on the sky you want to track.</p>
+    <label for="nRA-slider" style="display: inline-block; width: 10em; text-align: right">
+        RA
+    </label>
+    <input id="nRA-slider" type="range" min="-180" max="180" step="0.1">
+    <input id="nRA-number" type="number" min="-180" max="180" step="0.1"> deg
 
-<h2>Instructions</h2>
-<ul>
-    <li> Specify the RA/Dec (J2000) of the point on the sky you want to track.
-    <li> Specify the latitude/longitude of the location you're observing from.
-</ul>
+    <br>
+    <label for="nDec-slider" style="display: inline-block; width: 10em; text-align: right">
+        Dec
+    </label>
+    <input id="nDec-slider" type="range" min="-90" max="90" step="0.1">
+    <input id="nDec-number" type="number" min="-90" max="90" step="0.1"> deg
+</div>
+
+<div>
+    <p><b>Where are you?</b> Specify the latitude/longitude of the location you're observing from.</p>
+    <label for="nLat-slider" style="display: inline-block; width: 10em; text-align: right">
+        Latitude
+    </label>
+    <input id="nLat-slider" type="range" min="-90" max="90" step="0.1">
+    <input id="nLat-number" type="number" min="-90" max="90" step="0.1"> deg
+
+    <br>
+    <label for="nLon-slider" style="display: inline-block; width: 10em; text-align: right">
+           Longitude
+    </label>
+    <input id="nLon-slider" type="range" min="-180" max="180" step="0.1">
+    <input id="nLon-number" type="number"min="-180" max="180" step="0.1"> deg
+</div>
+
+<div id="skypath"></div>
 
 <h2>Notes</h2>
 <ul>
@@ -141,42 +165,6 @@ text {
 <p>
 Much of the original code comes from <a href="https://bl.ocks.org/mbostock/7784f4b2c7838b893e9b" target="new">this</a> nifty d3 visualization by Mike Bostock.  I've merely modified it for these purposes.
 </p>
-
-<p>
-    Where do you want to look?
-    <br>
-    <label for="nRA-slider" style="display: inline-block; width: 10em; text-align: right">
-        RA
-    </label>
-    <input id="nRA-slider" type="range" min="-180" max="180" step="0.1">
-    <input id="nRA-number" type="number" min="-180" max="180" step="0.1"> deg
-
-    <br>
-    <label for="nDec-slider" style="display: inline-block; width: 10em; text-align: right">
-        Dec
-    </label>
-    <input id="nDec-slider" type="range" min="-90" max="90" step="0.1">
-    <input id="nDec-number" type="number" min="-90" max="90" step="0.1"> deg
-</p>
-
-<p>
-    Where are you?
-    <br>
-    <label for="nLat-slider" style="display: inline-block; width: 10em; text-align: right">
-        Latitude
-    </label>
-    <input id="nLat-slider" type="range" min="-90" max="90" step="0.1">
-    <input id="nLat-number" type="number" min="-90" max="90" step="0.1"> deg
-
-    <br>
-    <label for="nLon-slider" style="display: inline-block; width: 10em; text-align: right">
-           Longitude
-    </label>
-    <input id="nLon-slider" type="range" min="-180" max="180" step="0.1">
-    <input id="nLon-number" type="number"min="-180" max="180" step="0.1"> deg
-</p>
-
-<div id="skypath"></div>
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="skypath_calculator.js"></script>

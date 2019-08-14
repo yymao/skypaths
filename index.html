@@ -6,11 +6,9 @@
 body {
     width: 800px;
     margin: auto;
-}
-
-h1, h2, p, ul {
     font-family: sans-serif;
     color: #444;
+    padding-bottom: 50px;
 }
 
 p, ul {
@@ -18,13 +16,15 @@ p, ul {
 }
 
 li {
-    margin: 0.5em
+    margin: 0.5em;
 }
 
 label {
-    font: 16px sans-serif;
-    color: #444;
+    font-size: 16px;
     vertical-align: middle;
+    display: inline-block; 
+    width: 10em; 
+    text-align: right;
 }
 
 input[type="number"] {
@@ -55,7 +55,7 @@ path {
 }
 
 text {
-  font: 10px sans-serif;
+  font-size: 10px;
 }
 
 .horizon {
@@ -115,20 +115,25 @@ text {
   font-weight: bold;
   font-size: 14px;
 }
+    
+div.skypath {
+  text-align: center;
+  margin: 40px 0;
+}
 </style>
 
 <h1>Sky trajectories of fixed celestial coordinates</h1>
 
 <div>
     <p><b>Where do you want to look?</b> Specify the RA/Dec (J2000) of the point on the sky you want to track.</p>
-    <label for="nRA-slider" style="display: inline-block; width: 10em; text-align: right">
+    <label for="nRA-slider">
         RA
     </label>
     <input id="nRA-slider" type="range" min="-180" max="180" step="0.1">
     <input id="nRA-number" type="number" min="-180" max="180" step="0.1"> deg
 
     <br>
-    <label for="nDec-slider" style="display: inline-block; width: 10em; text-align: right">
+    <label for="nDec-slider">
         Dec
     </label>
     <input id="nDec-slider" type="range" min="-90" max="90" step="0.1">
@@ -137,14 +142,14 @@ text {
 
 <div>
     <p><b>Where are you?</b> Specify the latitude/longitude of the location you're observing from.</p>
-    <label for="nLat-slider" style="display: inline-block; width: 10em; text-align: right">
+    <label for="nLat-slider">
         Latitude
     </label>
     <input id="nLat-slider" type="range" min="-90" max="90" step="0.1">
     <input id="nLat-number" type="number" min="-90" max="90" step="0.1"> deg
 
     <br>
-    <label for="nLon-slider" style="display: inline-block; width: 10em; text-align: right">
+    <label for="nLon-slider">
            Longitude
     </label>
     <input id="nLon-slider" type="range" min="-180" max="180" step="0.1">
@@ -160,11 +165,8 @@ text {
     <li> The center maps to the zenith, while the black circle maps to the horizon.
     <li> North and south poles are shown as small white circles.
     <li> Atmospheric refraction is not currently considered.
+    <li> Much of the original code comes from <a href="https://bl.ocks.org/mbostock/7784f4b2c7838b893e9b" target="new">this</a> nifty d3 visualization by Mike Bostock.  I've merely modified it for these purposes.</li>
 </ul>
-
-<p>
-Much of the original code comes from <a href="https://bl.ocks.org/mbostock/7784f4b2c7838b893e9b" target="new">this</a> nifty d3 visualization by Mike Bostock.  I've merely modified it for these purposes.
-</p>
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="skypath_calculator.js"></script>

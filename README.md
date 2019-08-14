@@ -1,4 +1,4 @@
-Sky trajectories of fixed celestial coordinates.  View [here](http://www.tonyyli.com/viz/skypaths/index.html).
+Sky trajectories of fixed celestial coordinates.  View [here](https://yymao.github.io/skypaths/).
 
 # Instructions
 
